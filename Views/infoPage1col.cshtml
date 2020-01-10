@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.Partial("Crumb")
+
+<div class="col text-center my-2">
+    <h2 class="display-4 mb-4">@Model.Value("pageHeader")</h2>
+</div>
+
+<div class="row content twentypx">
+     <div class="col">
+        <div class="bg-gray rounded mb-2 p-3">@Model.Value("pageBoxedContent")</div>
+        <div class="mx-2 p-3">@Model.Value("pageOutsideContent")</div>
+    </div>
+</div>

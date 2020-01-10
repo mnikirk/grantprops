@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.Partial("Crumb")
+
+<div class="col text-center my-2">
+    <h2 class="display-4 mb-4">@Model.Value("pageHeader")</h2>
+</div>
+
+<div class="row content">
+     <div class="col-md-8">
+        <div class="bg-gray rounded mb-2 p-3">@Model.Value("pageBoxedContent")</div>
+    </div>
+
+    <div class="col-md-4">
+
+    @{
+        var sidebarImages = Model.Value<IEnumerable<IPublishedContent>>("sideImages");
+            foreach (var photo in sidebarImages)
+            {
+                <img class="img-fluid mb-2" src="@photo.Url">
+            }
+    }
+    </div>
+    
+    <div class="mx-2 p-3 twentypx">@Model.Value("pageOutsideContent")</div>
+</div>

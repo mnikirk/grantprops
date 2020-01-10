@@ -1,0 +1,90 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Grant Properties provides Indiana University students with quality and service in great, close to campus, locations." />
+    <meta name="keywords" content="Grant Properties, Bloomington, Indiana, houses in Bloomington, apartments in Bloomington, apartments, apartment, IU, Indiana University" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/gp.css" />
+    <title>Grant Properties - Bloomington, IN</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dblue">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto text-right d-inline-block-sm">
+                <li class="nav-item">
+                    <a class="nav-link notactive" href="@Url.Content("~/home")">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link notactive' href='@Url.Content("~/properties")'>Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a class='nav-link notactive' href='@Url.Content("~/aboutus")'>About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link notactive" href="@Url.Content("~/faqs")">FAQs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid heading">
+        <div class="row vcenter">
+            <div class="col">
+                <div class="text-center">
+                    <h1 class="display-2 header p-2">Grant Properties</h1>
+                    <p><span class="large subhead text-nowrap">Quality and Service Close to Campus</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row search-bar">
+            <div class="col">
+                <a class="round-dblue text-nowrap" href="@Url.Content("~/properties")">Search Properties</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center py-4">
+                <h3 class="pt-3">
+                    @{
+            var icon1 = Model.Value<IPublishedContent>("contentIcon1");
+                        <img src="@icon1.Url" alt="@Model.Value("contentHeader1")">
+                    }
+                    @Model.Value("contentHeader1")
+                </h3>
+                <p>@Model.Value("contentDescription1")</p>
+
+                <h3 class="pt-3">
+                    @{
+            var icon2 = Model.Value<IPublishedContent>("contentIcon2");
+                        <img src="@icon2.Url" alt="@Model.Value("contentHeader2")">
+                    }
+                    @Model.Value("contentHeader2")
+                </h3>
+                <p>@Model.Value("contentDescription2")</p>
+
+                <h3 class="pt-3">
+                    @{
+            var icon3 = Model.Value<IPublishedContent>("contentIcon3");
+                        <img src="@icon3.Url" alt="@Model.Value("contentHeader3")">
+                    }
+                    @Model.Value("contentHeader3")
+                </h3>
+                <p>@Model.Value("contentDescription3")</p>
+            </div>
+        </div>
+
+    </div>
+    @Html.Partial("Footer")
+    </html> 

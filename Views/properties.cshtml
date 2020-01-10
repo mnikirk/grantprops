@@ -1,0 +1,800 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = "master.cshtml";
+}
+
+@Html.Partial("Crumb")
+
+<div class="row">
+    <div class="col text-center mb-4">
+        <h2 class="display-4">View Properties</h2>
+    </div>
+</div>
+
+<div class="row sticky-top bg-white py-2">
+    <div class="col d-flex justify-content-center mx-3">
+        <div class="dropdown d-inline">
+            <button class="btn btn-large dropdown-toggle border" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select # of bedrooms
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <form id="drp1" class="px-3">
+                <div>
+                    <input type="checkbox" name="1bed" id="1bed" value="1b" checked> 1 bedroom
+                </div>
+                <div>
+                    <input type="checkbox" name="2bed" id="2bed" value="2b" checked> 2 bedroom
+                </div>
+                <div>
+                    <input type="checkbox" name="3bed" id="3bed" value="3b" checked> 3 bedroom
+                </div>
+                <div>
+                    <input type="checkbox" name="4bed" id="4bed" value="4b" checked> 4 bedroom
+                </div>
+                <div>
+                    <input type="checkbox" name="5bed" id="5bed" value="5b" checked> 5 bedroom
+                </div>
+                </form>
+            </div>
+        </div>
+        <a id="listBtn" class="btn bg-dblue mx-3" href="#">Map View</a>
+    </div>
+</div>
+
+<!--begin list view -->
+<div id="list">
+@{
+	var selection = Umbraco.Content(Guid.Parse("701237f1-6c0f-4725-bd05-3c810452ada0"))
+    .ChildrenOfType("propertyListing")
+    .Where(x => x.IsVisible())
+    .OrderBy(x => x.Name);
+}
+
+
+<div id="1b" class="d-flex flex-wrap justify-content-center justify-content-sm-start">
+<div class="container-fluid text-center twentypx">
+    <p><strong>1 Bedroom</strong></p>
+</div>
+@foreach (var item in selection)
+ {
+    if (item.Value<string>("listingNumBr")=="1 bedroom")
+    {
+        <div class="listing-card">
+            @if(item.HasValue("listingPhoto"))
+            {
+                var image = item.Value<IPublishedContent>("listingPhoto");
+                <a href="@item.Url"><img class="rounded" src="@image.Url" alt='@item.Value("listingName")'/></a>
+            }
+            else
+            {
+                <img class="invisible" src="" />
+                <a href="@item.Url">No image available</a>
+            }
+                <p><a class="twentypx" href="@item.Url">@item.Value("listingName")</a></p>
+        </div>
+    }
+ }
+</div><!-- end 1b -->
+
+<div id="2b" class="d-flex flex-wrap justify-content-center justify-content-sm-start">
+<div class="container-fluid text-center twentypx">
+    <p><strong>2 Bedroom</strong></p>
+</div>
+@foreach (var item in selection)
+ {
+    if (item.Value<string>("listingNumBr")=="2 bedroom")
+    {
+        <div class="listing-card">
+            @if(item.HasValue("listingPhoto"))
+            {
+                var image = item.Value<IPublishedContent>("listingPhoto");
+                <a href="@item.Url"><img class="rounded" src="@image.Url" alt='@item.Value("listingName")'/></a>
+            }
+            else
+            {
+                <img class="invisible" src="" />
+                <a href="@item.Url">No image available</a>
+            }
+                <p><a class="twentypx" href="@item.Url">@item.Value("listingName")</a></p>
+        </div>
+    }
+ }
+</div><!-- end 2b -->
+
+<div id="3b" class="d-flex flex-wrap justify-content-center justify-content-sm-start">
+<div class="container-fluid text-center twentypx">
+    <p><strong>3 Bedroom</strong></p>
+</div>
+@foreach (var item in selection)
+ {
+    if (item.Value<string>("listingNumBr")=="3 bedroom")
+    {
+        <div class="listing-card">
+            @if(item.HasValue("listingPhoto"))
+            {
+                var image = item.Value<IPublishedContent>("listingPhoto");
+                <a href="@item.Url"><img class="rounded" src="@image.Url" alt='@item.Value("listingName")'/></a>
+            }
+            else
+            {
+                <img class="invisible" src="" />
+                <a href="@item.Url">No image available</a>
+            }
+                <p><a class="twentypx" href="@item.Url">@item.Value("listingName")</a></p>
+        </div>
+    }
+ }
+</div><!-- end 3b -->
+
+<div id="4b" class="d-flex flex-wrap justify-content-center justify-content-sm-start">
+<div class="container-fluid text-center twentypx">
+    <p><strong>4 Bedroom</strong></p>
+</div>
+@foreach (var item in selection)
+ {
+    if (item.Value<string>("listingNumBr")=="4 bedroom")
+    {
+        <div class="listing-card">
+            @if(item.HasValue("listingPhoto"))
+            {
+                var image = item.Value<IPublishedContent>("listingPhoto");
+                <a href="@item.Url"><img class="rounded" src="@image.Url" alt='@item.Value("listingName")'/></a>
+            }
+            else
+            {
+                <img class="invisible" src="" />
+                <a href="@item.Url">No image available</a>
+            }
+                <p><a class="twentypx" href="@item.Url">@item.Value("listingName")</a></p>
+        </div>
+    }
+ }
+</div><!-- end 4b -->
+
+<div id="5b" class="d-flex flex-wrap justify-content-center justify-content-sm-start">
+<div class="container-fluid text-center twentypx">
+    <p><strong>5 Bedroom</strong></p>
+</div>
+@foreach (var item in selection)
+ {
+    if (item.Value<string>("listingNumBr")=="5 bedroom")
+    {
+        <div class="listing-card">
+            @if(item.HasValue("listingPhoto"))
+            {
+                var image = item.Value<IPublishedContent>("listingPhoto");
+                <a href="@item.Url"><img class="rounded" src="@image.Url" alt='@item.Value("listingName")'/></a>
+            }
+            else
+            {
+                <img class="invisible" src="" />
+                <a href="@item.Url">No image available</a>
+            }
+                <p><a class="twentypx" href="@item.Url">@item.Value("listingName")</a></p>
+        </div>
+    }
+ }
+</div><!-- end 5b -->
+
+</div><!--end list view -->
+
+<!-- begin map view -->
+<div id="map" style="height:65vh"></div>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: {lat: 39.170995, lng: -86.521915},
+        });
+        
+        var atwater7001 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162983, lng: -86.525761 },
+            url: './properties/700-atwater-1bd/',
+            title: '700 E Atwater'
+        });
+        google.maps.event.addListener(atwater7001, 'click', function () {
+            window.location.href = atwater7001.url;
+        });
+        
+        var atwater7002 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162979, lng: -86.525694 },
+            url: './properties/700atwater/',
+            title: '700 E Atwater'
+        });
+        google.maps.event.addListener(atwater7002, 'click', function () {
+            window.location.href = atwater7002.url;
+        });
+        
+        var atwater710 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162954, lng: -86.525448 },
+            url: './properties/710atwater/',
+            title: '710 E Atwater'
+        });
+        google.maps.event.addListener(atwater710, 'click', function () {
+            window.location.href = atwater710.url;
+        });
+        
+        var atwater714 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162926, lng: -86.525191 },
+            url: './properties/714atwater/',
+            title: '714 E Atwater'
+        });
+        google.maps.event.addListener(atwater714, 'click', function () {
+            window.location.href = atwater714.url;
+        });
+        
+        var atwater728 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162969, lng: -86.524481 },
+            url: './properties/728atwater-3bd/',
+            title: '728 E Atwater'
+        });
+        google.maps.event.addListener(atwater728, 'click', function () {
+            window.location.href = atwater728.url;
+        });
+        
+        var atwater7284 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162969, lng: -86.524481 },
+            url: './properties/728-atwater-4bd/',
+            title: '728 E Atwater'
+        });
+        google.maps.event.addListener(atwater7284, 'click', function () {
+            window.location.href = atwater7284.url;
+        });
+        
+        var atwater730 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162999, lng: -86.524344 },
+            url: './properties/730atwater-3bd/',
+            title: '730 E Atwater'
+        });
+        google.maps.event.addListener(atwater730, 'click', function () {
+            window.location.href = atwater730.url;
+        });
+        
+        var atwater7305 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162999, lng: -86.524344 },
+            url: './properties/730atwater/',
+            title: '730 E Atwater'
+        });
+        google.maps.event.addListener(atwater7305, 'click', function () {
+            window.location.href = atwater7305.url;
+        });
+        
+        var atwater732 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.163003, lng: -86.524219 },
+            url: './properties/732atwater/',
+            title: '732 E Atwater'
+        });
+        google.maps.event.addListener(atwater732, 'click', function () {
+            window.location.href = atwater732.url;
+        });
+        
+        var cottage902 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.172418, lng: -86.523210 },
+            url: './properties/902cottage-2bd/',
+            title: '902 E Cottage Grove'
+        });
+        google.maps.event.addListener(cottage902, 'click', function () {
+            window.location.href = cottage902.url;
+        });
+        
+        var cottage9023 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.172418, lng: -86.523210 },
+            url: './properties/902cottage-3bd/',
+            title: '902 E Cottage Grove'
+        });
+        google.maps.event.addListener(cottage9023, 'click', function () {
+            window.location.href = cottage9023.url;
+        });
+        
+        var fess4114 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162857, lng: -86.525673 },
+            url: './properties/411-fess-4bd/',
+            title: '411 S Fess'
+        });
+        google.maps.event.addListener(fess4114, 'click', function () {
+            window.location.href = fess4114.url;
+        });
+        
+        var fess4115 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162857, lng: -86.525673 },
+            url: './properties/411-fess/',
+            title: '411 S Fess'
+        });
+        google.maps.event.addListener(fess4115, 'click', function () {
+            window.location.href = fess4115.url;
+        });
+        
+        var grant500 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.170659, lng: -86.529684 },
+            url: './properties/500grant/',
+            title: '500 N Grant'
+        });
+        google.maps.event.addListener(grant500, 'click', function () {
+            window.location.href = grant500.url;
+        });
+        
+        var grant502 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.170834, lng: -86.529513 },
+            url: './properties/502grant/',
+            title: '502 N Grant'
+        });
+        google.maps.event.addListener(grant502, 'click', function () {
+            window.location.href = grant502.url;
+        });
+        
+        var grant1209 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.178307, lng: -86.529976 },
+            url: './properties/1209grant',
+            title: '1209 N Grant - 3bd'
+        });
+        google.maps.event.addListener(grant1209, 'click', function () {
+            window.location.href = grant1209.url;
+        });
+        
+        var grant12092 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.178285, lng: -86.530082 },
+            url: './properties/1209-grant-2bd',
+            title: '1209 N Grant'
+        });
+        google.maps.event.addListener(grant12092, 'click', function () {
+            window.location.href = grant12092.url;
+        });
+            
+        var grant1212 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.178293, lng: -86.529277 },
+            url: './properties/1212grant/',
+            title: '1212 N Grant'
+        });
+        google.maps.event.addListener(grant1212, 'click', function () {
+            window.location.href = grant1212.url;
+        });
+        
+        var highland400 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162930, lng: -86.517960 },
+            url: './properties/400highland/',
+            title: '400 S Highland'
+        });
+        google.maps.event.addListener(highland400, 'click', function () {
+            window.location.href = highland400.url;
+        });
+        
+        var hunter721 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162432, lng: -86.524700 },
+            url: './properties/721hunter/',
+            title: '721 E Hunter'
+        });
+        google.maps.event.addListener(hunter721, 'click', function () {
+            window.location.href = hunter721.url;
+        });
+        
+        var hunter725 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162417, lng: -86.524543 },
+            url: './properties/725hunter/',
+            title: '725 E Hunter'
+        });
+        google.maps.event.addListener(hunter725, 'click', function () {
+            window.location.href = hunter725.url;
+        });
+        
+        var hunter727 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162472, lng: -86.524385 },
+            url: './properties/727hunter/',
+            title: '727 E Hunter'
+        });
+        google.maps.event.addListener(hunter727, 'click', function () {
+            window.location.href = hunter727.url;
+        });
+        
+        var hunter8161 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162046, lng: -86.523321 },
+            url: './properties/816-e-hunter-1bd/',
+            title: '816 E Hunter - 1bd'
+        });
+        google.maps.event.addListener(hunter8161, 'click', function () {
+            window.location.href = hunter8161.url;
+        });
+        
+        var hunter8162 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162113, lng: -86.523343 },
+            url: './properties/816hunter-2bd/',
+            title: '816 E Hunter - 2bd'
+        });
+        google.maps.event.addListener(hunter8162, 'click', function () {
+            window.location.href = hunter8162.url;
+        });
+        
+        var jefferson106 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.167147, lng: -86.506911 },
+            url: './properties/106jefferson/',
+            title: '106 N Jefferson'
+        });
+        google.maps.event.addListener(jefferson106, 'click', function () {
+            window.location.href = jefferson106.url;
+        });
+        
+        var jefferson112 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.167299, lng: -86.506899 },
+            url: './properties/112jefferson/',
+            title: '112 N Jefferson'
+        });
+        google.maps.event.addListener(jefferson112, 'click', function () {
+            window.location.href = jefferson112.url;
+        });
+        
+        var jefferson118 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.167427, lng: -86.506902 },
+            url: './properties/118jefferson/',
+            title: '118 N Jefferson'
+        });
+        google.maps.event.addListener(jefferson118, 'click', function () {
+            window.location.href = jefferson118.url;
+        });
+        
+        var jefferson205 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.165385, lng: -86.506854 },
+            url: './properties/205jefferson/',
+            title: '205 S Jefferson'
+        });
+        google.maps.event.addListener(jefferson205, 'click', function () {
+            window.location.href = jefferson205.url;
+        });
+        
+        var jefferson209 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.165227, lng: -86.506862 },
+            url: './properties/209jefferson/',
+            title: '209 S Jefferson'
+        });
+        google.maps.event.addListener(jefferson209, 'click', function () {
+            window.location.href = jefferson209.url;
+        });
+        
+        var lincoln544 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.159977, lng: -86.531564 },
+            url: './properties/544lincoln/',
+            title: '544 S Lincoln'
+        });
+        google.maps.event.addListener(lincoln544, 'click', function () {
+            window.location.href = lincoln544.url;
+        });
+        
+        var mitchell402 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.162791, lng: -86.514519 },
+            url: './properties/402mitchell/',
+            title: '402 S Mitchell'
+        });
+        google.maps.event.addListener(mitchell402, 'click', function () {
+            window.location.href = mitchell402.url;
+        });
+        
+        var ninth401 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.170672, lng: -86.529631 },
+            url: './properties/401e9th/',
+            title: '401 1/2 E 9th'
+        });
+        google.maps.event.addListener(ninth401, 'click', function () {
+            window.location.href = ninth401.url;
+        });
+        
+        var ninth405 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.170615, lng: -86.529467 },
+            url: './properties/405e9th/',
+            title: '405 E 9th'
+        });
+        google.maps.event.addListener(ninth405, 'click', function () {
+            window.location.href = ninth405.url;
+        });
+        
+        var roosevelt200 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.165506, lng: -86.506188 },
+            url: './properties/200roosevelt/',
+            title: '200 - 202 S Roosevelt'
+        });
+        google.maps.event.addListener(roosevelt200, 'click', function () {
+            window.location.href = roosevelt200.url;
+        });
+        
+        var roosevelt204 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.165393, lng: -86.506289 },
+            url: './properties/204-206-s-roosevelt/',
+            title: '204 - 206 S Roosevelt'
+        });
+        google.maps.event.addListener(roosevelt204, 'click', function () {
+            window.location.href = roosevelt204.url;
+        });
+        
+        var roosevelt208 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.165221, lng: -86.506333 },
+            url: './properties/208-210-s-roosevelt/',
+            title: '208 - 210 S Roosevelt'
+        });
+        google.maps.event.addListener(roosevelt208, 'click', function () {
+            window.location.href = roosevelt208.url;
+        });
+        
+        var second400 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.161100, lng: -86.529721 },
+            url: './properties/400second/',
+            title: '400 E 2nd'
+        });
+        google.maps.event.addListener(second400, 'click', function () {
+            window.location.href = second400.url;
+        });
+        
+        var seventh114 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.168395, lng: -86.532839 },
+            url: './properties/114e7th-3bd/',
+            title: '114 E 7th'
+        });
+        google.maps.event.addListener(seventh114, 'click', function () {
+            window.location.href = seventh114.url;
+        });
+        
+        var seventh1145 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.168395, lng: -86.532839 },
+            url: './properties/114e7th-5bd/',
+            title: '114 E 7th'
+        });
+        google.maps.event.addListener(seventh1145, 'click', function () {
+            window.location.href = seventh1145.url;
+        });
+        
+        var stull1216 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.152900, lng: -86.525094 },
+            url: './1216stull/',
+            title: '1216 S Stull'
+        });
+        google.maps.event.addListener(stull1216, 'click', function () {
+            window.location.href = stull1216.url;
+        });
+        
+        var twelth613 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.174482, lng: -86.525999 },
+            url: './properties/613e12th',
+            title: '613 E 12th'
+        });
+        google.maps.event.addListener(twelth613, 'click', function () {
+            window.location.href = twelth613.url;
+        });
+        
+        var twentieth301 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.182045, lng: -86.530690},
+            url: './properties/301e20th',
+            title: '301 E 20th'
+        });
+        google.maps.event.addListener(twentieth301, 'click', function () {
+            window.location.href = twentieth301.url;
+        });
+        
+        var twentieth304 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.181634, lng: -86.530498 },
+            url: './properties/304-20th-2bd',
+            title: '304 E 20th'
+        });
+        google.maps.event.addListener(twentieth304, 'click', function () {
+            window.location.href = twentieth304.url;
+        });
+        
+        var union105 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.166574, lng: -86.509190 },
+            url: './properties/105union/',
+            title: '105 S Union'
+        });
+        google.maps.event.addListener(union105, 'click', function () {
+            window.location.href = union105.url;
+        });
+        
+        var university320 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.160230, lng: -86.530258 },
+            url: './properties/320university/',
+            title: '320 E University'
+        });
+        google.maps.event.addListener(university320, 'click', function () {
+            window.location.href = university320.url;
+        });
+        
+        var washington3142 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.169157, lng: -86.531958 },
+            url: './properties/314washington-2bd/',
+            title: '314 N Washington - 2bd'
+        });
+        google.maps.event.addListener(washington3142, 'click', function () {
+            window.location.href = washington3142.url;
+        });
+        
+        var washington3143 = new google.maps.Marker({
+            map: map,
+            position: { lat: 39.169140, lng: -86.532125 },
+            url: './properties/314washington-3bd/',
+            title: '314 N Washington - 3bd'
+        });
+        google.maps.event.addListener(washington3143, 'click', function () {
+            window.location.href = washington3143.url;
+        });
+        
+var bed1 = document.getElementById("1bed");
+var bed2 = document.getElementById("2bed");
+var bed3 = document.getElementById("3bed");
+var bed4 = document.getElementById("4bed");
+var bed5 = document.getElementById("5bed");
+
+bed1.addEventListener("change", function () {
+  if(bed1.checked){
+    atwater7001.setMap(map);
+    atwater710.setMap(map);
+    atwater714.setMap(map);
+    grant1212.setMap(map);
+    hunter8161.setMap(map);
+    lincoln544.setMap(map);
+    ninth401.setMap(map);
+    ninth405.setMap(map);
+    second400.setMap(map);
+    stull1216.setMap(map);
+    twentieth301.setMap(map);
+    twentieth304.setMap(map);
+  } else {
+    atwater7001.setMap(null);
+    atwater710.setMap(null);
+    atwater714.setMap(null);
+    grant1212.setMap(null);
+    hunter8161.setMap(null);
+    lincoln544.setMap(null);
+    ninth401.setMap(null);
+    ninth405.setMap(null);
+    second400.setMap(null);
+    stull1216.setMap(null);
+    twentieth301.setMap(null);
+    twentieth304.setMap(null);
+  }
+});
+
+bed2.addEventListener("change", function () {
+  if(bed2.checked){
+  	atwater7002.setMap(map);
+  	cottage902.setMap(map);
+  	grant12092.setMap(map);
+  	highland400.setMap(map);
+  	hunter8162.setMap(map);
+  	jefferson106.setMap(map);
+    jefferson112.setMap(map);
+    jefferson118.setMap(map);
+    lincoln544.setMap(map);
+    roosevelt200.setMap(map);
+    roosevelt208.setMap(map);
+    twelth613.setMap(map);
+    twentieth304.setMap(map);
+    union105.setMap(map);
+    university320.setMap(map);
+    washington3142.setMap(map);
+  } else {
+  	atwater7002.setMap(null);
+  	cottage902.setMap(null);
+  	grant12092.setMap(null);
+  	highland400.setMap(null);
+  	hunter8162.setMap(null);
+  	jefferson106.setMap(null);
+    jefferson112.setMap(null);
+    jefferson118.setMap(null);
+    lincoln544.setMap(null);
+    roosevelt200.setMap(null);
+    roosevelt208.setMap(null);
+    twelth613.setMap(null);
+    twentieth304.setMap(null);
+    union105.setMap(null);
+    university320.setMap(null);
+    washington3142.setMap(null);
+  }
+});
+
+bed3.addEventListener("change", function () {
+  if(bed3.checked){
+    atwater728.setMap(map);
+    atwater730.setMap(map);
+    atwater732.setMap(map);
+    cottage9023.setMap(map);
+    grant502.setMap(map);
+    grant1209.setMap(map);
+    jefferson205.setMap(map);
+    jefferson209.setMap(map);
+    mitchell402.setMap(map);
+    roosevelt204.setMap(map);
+    seventh114.setMap(map);
+    washington3143.setMap(map);
+  } else {
+    atwater728.setMap(null);
+    atwater730.setMap(null);
+    atwater732.setMap(null);
+    cottage9023.setMap(null);
+    grant502.setMap(null);
+    grant1209.setMap(null);
+    jefferson205.setMap(null);
+    jefferson209.setMap(null);
+    mitchell402.setMap(null);
+    roosevelt204.setMap(null);
+    seventh114.setMap(null);
+    washington3143.setMap(null);
+  }
+});
+
+bed4.addEventListener("change", function () {
+  if(bed4.checked){
+    atwater7284.setMap(map);
+    fess4114.setMap(map);
+    grant500.setMap(map);
+  } else {
+    atwater7284.setMap(null);  
+    fess4114.setMap(null);
+    grant500.setMap(null);
+  }
+});
+
+bed5.addEventListener("change", function () {
+  if(bed5.checked){
+    atwater7305.setMap(map);
+    fess4115.setMap(map);
+    hunter721.setMap(map);
+    hunter725.setMap(map);
+    hunter727.setMap(map);
+    seventh1145.setMap(map);
+  } else {
+    atwater7305.setMap(null);
+    fess4115.setMap(null);
+    hunter721.setMap(null);
+    hunter725.setMap(null);
+    hunter727.setMap(null);
+    seventh1145.setMap(null);
+  }
+});
+
+}//end initMap
+
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPuqcVOwwiSA0v7msPTNM3-fxqDZiqsAw&callback=initMap">
+</script>
+<!-- end map view -->

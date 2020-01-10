@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+    <ul class="crumb py-2">
+        <li>
+            <a href="@Url.Content("~/home")">Home</a>
+        </li>
+        <li>
+            > @Model.Value("pageHeader")
+        </li>
+    </ul>
