@@ -1,0 +1,306 @@
+/*
+    Color palette:
+    #234797 dark blue
+    #f4f4f4 light gray
+    #fff white
+*/
+
+@font-face {
+font-family: 'Iowan';
+font-style: normal;
+font-weight: normal;
+src: local('Iowan'), url('iowan.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Apple Chancery';
+font-style: normal;
+font-weight: normal;
+src: local('Apple Chancery'), url('appleChancery.woff') format('woff');
+}
+
+body {
+    font-family: "Iowan";
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+em {
+    font-size: 0.875rem;
+    font-style: normal;
+}
+
+.bg-dblue, .bg-dblue:hover {
+    background-color: #234797;
+    color: #fff;
+}
+
+.bg-tdblue, bg-tdblue:hover {
+    background-color: #234797;
+    background-color: rgba(35, 71, 151, .8);
+    color: #fff;
+}
+
+.bg-white {
+    background-color: #fff;
+    color: #234797;
+}
+
+.bg-gray {
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+.bg-gray a {
+    color: #234797;
+    text-decoration: underline;
+}
+
+.bg-gray ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.bg-gray ul li::before {
+    content: "\2022";
+    color: #234797;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.navbar-brand {
+    text-align: center;
+}
+
+.fa-bars {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0;
+    margin: 1rem;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-bottom {
+    border-bottom: 2px solid #fff;
+    
+}
+
+.nav-item a {
+    color: #fff;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+
+.vcenter {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.heading {
+    background-color: #234797;
+    background-image: url("../Media/k0lp2u2l/sample-gates.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    height: 30rem;
+    padding-top: 7rem;
+}
+
+.header {
+    font-family: 'Apple Chancery', cursive;
+    color: #fff;
+}
+
+.round-white {
+    color: #234797;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: .5em;
+}
+
+.round-dblue, .round-dblue:hover {
+    background-color: #234797;
+    color: #fff;
+    border-radius: 5px;
+    margin: .5em;
+    padding: .5em 3em;
+    font-size: 1.3em;
+    text-decoration: none;
+}
+
+.subhead {
+    background-color: #fff;
+    color: #234797;
+    border-radius: 20px;
+    padding: .2em .5em;
+}
+
+.small {
+    font-size: 0.8rem;
+}
+
+.large {
+    font-size: 1.5rem;
+}
+
+.crumb {
+    padding-left: 1rem;
+    list-style-type: none;
+}
+
+.crumb li {
+    display: inline;
+}
+
+.crumb a {
+    color: #234797;
+}
+
+.search-bar {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 1.5em;
+}
+
+.btn-circle{
+    font-size: 1.5rem;
+    padding: .5em;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-radius: 50%;
+    width: 2em;
+}
+
+.content {
+    padding: 0 1rem;
+}
+
+.content a, .content a:hover, .content a:visited {
+    color: #234797;
+    text-decoration: underline;
+}
+
+.content li {
+    padding-bottom: 1em;
+}
+
+.overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 2em;
+  left: 5em;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.listing-card {
+    width: 300px;
+    margin: 0 1rem 1rem 1rem;
+    text-align: center;
+}
+
+.listing-card a, .listing-card a:hover {
+    color: #234797;
+}
+
+.listing-card img {
+    height: 13em;
+}
+
+.twentypx {
+    font-size: 20px;
+}
+
+.twentypx ul {
+    margin-bottom: 0;
+}
+
+.footer-left {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.footer-middle {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.footer-right {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: right;
+}
+
+.dropdown-menu {
+    font-size: 1.5rem;
+}
+
+#map {
+    display: none;
+    height: 100%;
+    margin: 16px;
+}
+
+@media screen and (max-width: 768px){
+    .btn-circle {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar-brand {
+        margin-right: 0;
+    }
+    
+    .display-1, .display-2, .display-3 {
+        font-size: 3rem;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .heading {
+        height: 15em;
+        padding-top: 2rem;
+    }
+    
+    .subhead {
+        font-size: 1.2em;
+    }
+    
+    .small {
+        font-size: 0.7em;
+    }
+    
+    .round-dblue, .round-dblue:hover {
+        font-size: 1em;
+    }
+    
+    .footer-left, .footer-middle, .footer-right {
+        text-align: center;
+    }
+    
+}
